@@ -1,6 +1,6 @@
 'use strict';
 
-eventsApp.controller('EventController', function EventController($scope, $log, $sce) {
+eventsApp.controller('EventController', function EventController($scope, $log, $timeout, eventData) {
 
     $scope.boolValue = true;
 
@@ -12,37 +12,14 @@ eventsApp.controller('EventController', function EventController($scope, $log, $
 
     $scope.myclass = 'blue';
 
-    $scope.eventDetail = {
-        name: 'Angular Boot Camp',
-        date :'1/1/2013',
-        time: '10:30 am',
-        location: {
-            address: 'Google Headquarters',
-            city: 'Mountain View',
-            province: 'CA'
-        },
-        imageUrl: 'img/angularjs-logo.png',
-        sessions: [
-            {
-                name: 'Directives masterclass',
-                upVoteCount: 0,
-                duration: 1,
-                level: 'intermediate'
-            },
-            {
-                name: 'Scopes for fun and profit',
-                upVoteCount: 0,
-                duration: 2,
-                level: 'introductory'
-            },
-            {
-                name: 'Well behaved controllers',
-                upVoteCount: 0,
-                duration: 1,
-                level: 'advanced'
-            }
-        ]
-    };
+    eventData.getEvent(function(event){
+        //debugger
+        $log.warn(event);
+        $scope.eventDetail= event;
+        $timeout(function(){
+            $scope.$apply();
+        }, 500);
+    });
 
     $log.info('Inside EventController of AngularJs course for Pluralsight!. The time is now: ' + new Date());
     $log.warn($scope.eventDetail);
