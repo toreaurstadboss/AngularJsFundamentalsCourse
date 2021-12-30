@@ -13,7 +13,9 @@
             <ul class="nav">
                 <li><a href="EventDetails.html">Events</a></li>
                 <li><a href="NewEvent.html">New Event</a></li>
-                <li><a href="Editprofile.html">Edit profile</a></li>
+                <li><a href="EditProfile.html">Edit profile</a></li>
+                <li><a href="CacheSample.html">Cache sample</a></li>
+                <li><a href="CompileSample.html">Compile sample</a></li>
             </ul>
 
         </div>
@@ -22,6 +24,8 @@
 
     <div ng-controller="EventController" style="padding-left:20px; padding-right:20px">
         <img ng-src="{{eventDetail.imageUrl}}" alt="{{eventDetail.name}}" />
+
+        <button type="button" class="btn btn-primary" ng-click="scrollToSession()">Test scroll to anchor (type ##session'id' after url)</button>
 
         <div class="row">
             <h2 class="span3">
@@ -80,7 +84,7 @@
 
             <code>{{eventDetail | json}}</code>
 
-            <li ng-repeat="session in eventDetail.sessions | orderBy:sortOrder | limitTo:1000 | filter:query">
+            <li ng-repeat="session in eventDetail.sessions | orderBy:sortOrder | limitTo:1000 | filter:query" id="session{{session.id}}">
 
                 <div class="row session">
 

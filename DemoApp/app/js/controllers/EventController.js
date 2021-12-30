@@ -1,6 +1,6 @@
 'use strict';
 
-eventsApp.controller('EventController', function EventController($scope, $log, $timeout, eventData) {
+eventsApp.controller('EventController', function EventController($scope, $log, $timeout, $anchorScroll, eventData) {
 
     $scope.boolValue = true;
 
@@ -12,20 +12,21 @@ eventsApp.controller('EventController', function EventController($scope, $log, $
 
     $scope.myclass = 'blue';
 
-    eventData.getEvent(function(event){
-        //debugger
-        $log.warn(event);
-        $scope.eventDetail= event;
-        $timeout(function(){
-            $scope.$apply();
-        }, 500);
-    });
+    eventData.getEvent()
+        .success(function(event) { $scope.eventDetail = event; })
+        .error(function(data, status, headers, config) {
+            $log.warn(data, status, headers(), config);
+        });
 
     $log.info('Inside EventController of AngularJs course for Pluralsight!. The time is now: ' + new Date());
     $log.warn($scope.eventDetail);
 
     $scope.upVoteSession = function(session) {
         session.upVoteCount++;
+    }
+
+    $scope.scrollToSession = function() {
+        $anchorScroll();
     }
 
     $scope.downVoteSession = function(session) {
