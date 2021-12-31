@@ -1,13 +1,13 @@
 <html lang="en" ng-app="eventsApp">
 <head>
     <meta charset="utf-8">
-    <title>Locale sample</title>
+    <title>Event Registration</title>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
 
-<div class="container-fluid" ng-controller="LocaleSampleController" style="padding:20px">
+<div class="container-fluid" ng-controller="SampleDirectiveController" style="padding:20px">
 
     <div class="navbar">
         <div class="navbar-inner">
@@ -17,34 +17,35 @@
                 <li><a href="EditProfile.html">Edit profile</a></li>
                 <li><a href="CacheSample.html">Cache sample</a></li>
                 <li><a href="CompileSample.html">Compile sample</a></li>
-                <li><a href="LocaleSample.html">Locale sample</a></li>
+
             </ul>
         </div>
     </div>
 
-    <h3>Locale sample</h3>
+    <h3>Directive sample</h3>
 
-    <h3>{{myDate | date:myFormat}}</h3>
+    <div my-sample />
 
-    <h4>{{myMoney | currency}}</h4>
+
+
+
 
 </div>
 
 
 <script src="lib/jquery.min.js"></script>
 <script src="lib/angular/angular.js"></script>
-<script src="lib/angular/angular-locale_no.js"></script>
 <script src="lib/angular/angular-resource.js"></script>
 <script src="lib/angular/angular-route.min.js"></script>
 <script src="lib/underscore-1.4.4.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/EditProfileController.js"></script>
-<script src="lib/angular/angular-cookies.js"></script>
-
-<script src="js/services/ExceptionHandler.js"></script>
-<script src="js/controllers/LocaleSampleController.js"></script>
+<script src="js/directives.js"></script>
+<script src="js/controllers/SampleDirectiveController.js"></script>
 <script src="js/services/GravatarUrlBuilder.js"></script>
 <script src="lib/angular/angular-sanitize.js"></script>
+<script src="lib/angular/angular-cookies.js"></script>
+
 <!--<script src="js/directives/gravatar.js"></script>-->
 <script src="js/filters.js"></script>
 <script src="lib/bootstrap.min.js"></script>
