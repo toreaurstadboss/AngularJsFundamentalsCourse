@@ -17,7 +17,8 @@ describe('EventListController', function() {
     it('should set the scope events to the result of eventData.getAllEvents', function() {
         //debugger
         var mockEvents = {};
-          debugger
+         // debugger
+         // debugger
         mockEventData.getAllEvents.returns(mockEvents);
         $controllerConstructor("EventListController", {'$scope': scope, eventData: mockEventData });
         expect(scope.events).toBe(mockEvents);

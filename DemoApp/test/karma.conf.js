@@ -12,15 +12,22 @@ module.exports = function(config){
       '../test/unit/**/*.js'
     ],
 
+    client: {
+      clearContext: true
+    },
+
     autoWatch : true,
 
     frameworks: ['jasmine'],
 
     browsers : ['Chrome'],
 
+    reporters: ['kjhtml'],
+
     plugins : [
       'karma-chrome-launcher',
-      'karma-jasmine'
+      'karma-jasmine',
+      'karma-jasmine-html-reporter'
     ],
 
     junitReporter : {
