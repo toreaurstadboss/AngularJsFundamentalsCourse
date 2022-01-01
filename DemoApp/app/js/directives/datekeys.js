@@ -5,7 +5,7 @@ eventsApp.directive('dateKeys', function() {
     return {
       restrict: 'A',
       link: function(scope, element, attrs, controller) {
-          debugger
+          //debugger
           element.on('keydown', function(event) {
              if (isNumericKeyCode(event.keyCode) || isForwardSlashKeyCode(event.keyCode) || isNavigationKeyCode(event.keyCode)){
                  return true;
