@@ -4,4 +4,6 @@ eventsApp.controller('SampleDirectiveController', function SampleDirectiveContro
 
     $scope.someprop = 'hello';
 
+    $scope.nowTime = new Date();
+
 });
