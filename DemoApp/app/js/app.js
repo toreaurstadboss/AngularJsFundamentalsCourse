@@ -1,6 +1,6 @@
 'use strict';
 
-var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngCookies'])
+var eventsApp = angular.module('eventsApp', ['ngSanitize', 'ngCookies', 'ngResource'])
     .factory('myCache', function($cacheFactory){
         return $cacheFactory('myCache', { capacity: 3 });
     })
